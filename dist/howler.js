@@ -186,6 +186,20 @@
     },
 
     /**
+     * Clear all sounds inside _sounds
+     * @return {Howler}
+     */
+    clearSound: function() {
+      var self = this || Howler;
+      for (var i = 0; i < self._howls.length; i++) {
+        if (self._howls[i]._webAudio) {
+          self._howls[i]._sounds = [];
+        }
+      }
+      return self;
+    },
+
+    /**
      * Check for codec support of specific extension.
      * @param  {String} ext Audio file extention.
      * @return {Boolean}
